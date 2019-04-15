@@ -28,19 +28,23 @@ namespace Assets.Source
         void OnCollisionEnter2D(Collision2D i_Collision)
         {
             float l_RelativeVelocity = i_Collision.relativeVelocity.magnitude;
-            Debug.Log("Collided Nail" + l_RelativeVelocity);
+            //Debug.Log("Collided Nail" + l_RelativeVelocity);
 
             if (m_MinVelocity > l_RelativeVelocity)
                 return;
 
             float l_Movement = Mathf.Lerp(0.0f, m_MovementCap, l_RelativeVelocity / m_VelocityCap);
-
-
-
             Vector3 l_Position = transform.position;
             transform.position = new Vector3(l_Position.x, l_Position.y - l_Movement, l_Position.z);
 
+
             NailManager.Instance.PlayRandomHammeredSound();
+
+
+            m_CurrentMovement += l_Movement;
+            if (m_CurrentMovement >= m_MaxMovement)
+                NailManager.Instance.MoveToNextNail();
+
         }
     }
 }

@@ -38,6 +38,9 @@ namespace Assets.Source
             m_AudioSource.Play();
         }
 
-
+        public void MoveToNextNail()
+        {
+            Debug.Log("Moving");
+        }
     }
 }
