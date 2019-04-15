@@ -1,17 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Source
 {
     [RequireComponent(typeof(AudioSource))]
-    public class NailManager : MonoBehaviour
+    public class SoundManager : MonoBehaviour
     {
         [SerializeField] private AudioClip[] m_NailHammeringSounds;
 
-
-        public static NailManager Instance;
-
-
-
+        public static SoundManager Instance;
         private AudioSource m_AudioSource;
 
         public void Awake()
@@ -38,9 +34,5 @@ namespace Assets.Source
             m_AudioSource.Play();
         }
 
-        public void MoveToNextNail()
-        {
-            Debug.Log("Moving");
-        }
     }
 }

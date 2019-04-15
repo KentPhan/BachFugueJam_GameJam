@@ -38,12 +38,12 @@ namespace Assets.Source
             transform.position = new Vector3(l_Position.x, l_Position.y - l_Movement, l_Position.z);
 
 
-            NailManager.Instance.PlayRandomHammeredSound();
+            SoundManager.Instance.PlayRandomHammeredSound();
 
 
             m_CurrentMovement += l_Movement;
             if (m_CurrentMovement >= m_MaxMovement)
-                NailManager.Instance.MoveToNextNail();
+                GameManager.Instance.MoveToNextNail();
 
         }
     }

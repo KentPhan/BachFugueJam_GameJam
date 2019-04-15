@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6018447050328017511}
   - component: {fileID: 4555045457471122500}
   m_Layer: 0
-  m_Name: NailManager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c83311b860c8a94cbd8717175a4aa03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NailHammeringSounds: []
