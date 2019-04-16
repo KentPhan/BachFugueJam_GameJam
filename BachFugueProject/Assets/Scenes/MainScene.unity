@@ -1385,6 +1385,11 @@ PrefabInstance:
       propertyPath: m_CursorTexture
       value: 
       objectReference: {fileID: 2800000, guid: 9c0c112f8a04d2d4c95c9240977d5b01, type: 3}
+    - target: {fileID: 6563728946367933083, guid: c6263347295264345b3a9170cc14df4e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6263347295264345b3a9170cc14df4e, type: 3}
 --- !u!1001 &6981960015445428674
