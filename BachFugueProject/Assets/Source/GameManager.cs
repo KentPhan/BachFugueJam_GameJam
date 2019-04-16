@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Source
 {
@@ -12,7 +13,7 @@ namespace Assets.Source
 
 
         public static GameManager Instance;
-        private FurnitureComponent[] m_Furniture;
+        [SerializeField] private FurnitureComponent[] m_Furniture;
         private AudioSource m_AudioSource;
 
 
@@ -38,6 +39,14 @@ namespace Assets.Source
         // Update is called once per frame
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(0);
+            }
 
         }
 
@@ -57,6 +66,16 @@ namespace Assets.Source
             SpawnBoard();
 
             // Spawn Furniture
+            foreach (FurnitureComponent l_Furn in m_Furniture)
+            {
+                if (!l_Furn.AlreadyMoved())
+                {
+                    if (l_Furn.GetRequiredCount() <= m_FinishedBoardCount)
+                    {
+                        l_Furn.Move();
+                    }
+                }
+            }
         }
 
         private void SpawnBoard()

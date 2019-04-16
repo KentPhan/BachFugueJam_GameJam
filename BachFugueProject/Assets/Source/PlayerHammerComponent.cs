@@ -5,7 +5,7 @@ public class PlayerHammerComponent : MonoBehaviour
     [SerializeField] private float m_Acceleration = 1.0f;
     [SerializeField] private float m_HorizontalCorrectionSpeed = 2.0f;
     [SerializeField] private float m_HammerPositionBuffer = 0.5f;
-
+    [SerializeField] private Texture2D m_CursorTexture;
 
 
     private Vector3 m_CurrentMousePosition;
@@ -14,6 +14,7 @@ public class PlayerHammerComponent : MonoBehaviour
 
     private Vector3 m_OriginalHorizontalPosition;
     private bool m_CollidingWithNail;
+    private bool m_MouseOverHandle;
 
     public void Awake()
     {
@@ -21,12 +22,14 @@ public class PlayerHammerComponent : MonoBehaviour
         m_ApplingForceUp = false;
         m_OriginalHorizontalPosition = transform.position;
         m_CollidingWithNail = false;
+        m_MouseOverHandle = false;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
+        //Cursor.SetCursor(m_CursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     // Update is called once per frame
@@ -79,13 +82,6 @@ public class PlayerHammerComponent : MonoBehaviour
     {
         Vector3 l_CurrentPosition = transform.position;
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
-        }
-
-
         m_CurrentMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // Compute New  Direction
@@ -120,6 +116,8 @@ public class PlayerHammerComponent : MonoBehaviour
 
         // Update Position of Hammer
         m_RigidBody.AddForce(l_Direction * m_Acceleration, ForceMode2D.Force);
+
+
     }
 
 
@@ -133,4 +131,17 @@ public class PlayerHammerComponent : MonoBehaviour
         m_CollidingWithNail = false;
         // If Colliding don't force horizontal movement
     }
+
+    //void OnMouseOver()
+    //{
+    //    m_MouseOverHandle = true;
+    //    //If your mouse hovers over the GameObject with the script attached, output this message
+
+    //}
+
+    //void OnMouseExit()
+    //{
+    //    // Reset the color of the GameObject back to normal
+    //    m_MouseOverHandle = false;
+    //}
 }
